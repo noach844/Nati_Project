@@ -1,0 +1,40 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+table {  
+  line-height: 40px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 2px solid #dd0000;
+  min-width: 15%;
+  margin: 0 auto;
+  border-radius: 0.15rem;
+}
+
+th {
+    background: #dd0000;
+    color: #fff;
+    border: none;  
+    padding: 0 20px;      
+}
+
+tr {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+tr:hover {
+  background-color: lightgray;  
+  cursor: pointer;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+td:last-child {    
+    padding-right: 10px;
+}
