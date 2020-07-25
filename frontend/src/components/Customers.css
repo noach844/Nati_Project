@@ -44,3 +44,7 @@ td {
 td:last-child {    
     padding-right: 10px;
 }
+
+.plus{
+  cursor: pointer;
+}

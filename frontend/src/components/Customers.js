@@ -2,12 +2,14 @@ import React from "react";
 import "./Customers.css";
 import Customer_Mid from "./Customer_Mid";
 import axios from "axios";
+import CollsF from "./Colls_Form";
 
 class Customers extends React.Component {
   state = {
     loaded: false,
     customers: [],
     colls: [],
+    collsf: false,
   };
 
   getCustomers = () => {
@@ -23,22 +25,25 @@ class Customers extends React.Component {
     });
   };
 
+  toggle_collsf = () => {
+    this.setState({ collsf: !this.state.collsf });
+  };
+
   render() {
     {
       if (!this.state.loaded) {
         this.getColls();
         this.getCustomers();
-        this.setState({loaded: true})
+        this.setState({ loaded: true });
       }
     }
     return (
       <div>
+        {this.state.collsf && <CollsF toggle={this.toggle_collsf} />}
         <table>
           <thead>
             <tr>
-              <th colSpan={this.state.colls.length+1}>
-                לקוחות
-              </th>
+              <th colSpan={this.state.colls.length + 1}>לקוחות</th>
             </tr>
           </thead>
           <tbody>
@@ -46,7 +51,9 @@ class Customers extends React.Component {
               {Object.values(this.state.colls).map((obj) => {
                 return <th>{Object.values(obj)[1]}</th>;
               })}
-              <th>+</th>
+              <th onClick={this.toggle_collsf} className="plus">
+                +
+              </th>
             </tr>
             <Customer_Mid c_lst={this.state.customers} />
           </tbody>

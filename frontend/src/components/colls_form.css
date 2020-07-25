@@ -1,0 +1,58 @@
+section{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.collsForm{
+    z-index: 2;    
+    position: fixed;
+    background-color: white;
+    border: 2px solid #dd0000;   
+    border-radius: 5px;
+    right: 40%;
+    top: 25%;
+    width: 20%;    
+    cursor: default;
+}
+
+.formHead{
+    padding-top: 5px;
+    background-color: #dd0000;        
+}
+
+h1{    
+    color: white;
+}
+
+.overlay{
+    top: 0;
+    right: 0;
+    z-index: 1;    
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    height: 100%;
+    width: 100%;   
+    cursor: pointer; 
+}
+
+label{
+    font-weight: bold;
+}
+
+input{
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+button{
+    background-color: #dd0000;
+    cursor: pointer;
+    color: white;
+    border: 0;    
+    height: 30px;
+    width: 60px;
+    font-size: 16px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
