@@ -1,53 +1,54 @@
 import React from "react";
 import "./Customers.css";
 import Customer_Mid from "./Customer_Mid";
-import axios from 'axios';
+import axios from "axios";
 
 class Customers extends React.Component {
-  // customers = [
-  //   {
-  //     name: "עומר",
-  //     lanme: "נח",
-  //     phone: "0503344478",      
-  //   },
-  //   {
-  //     name: "עומר1",
-  //     lanme: "נח1",
-  //     phone: "0503344478",
-  //   },
-  //   {
-  //     name: "עומר1",
-  //     lanme: "נח1",
-  //     phone: "0503344478",      
-  //   },
-  // ];
+  state = {
+    loaded: false,
+    customers: [],
+    colls: [],
+  };
 
   getCustomers = () => {
-    axios.get('http://127.0.0.1:5000/customers/get').then(res => {console.log(res.data)})   
-  }  
+    axios.get("http://127.0.0.1:5000/customers/get").then((res) => {
+      this.setState({ customers: Object.values(res.data)[0] });
+      console.log(this.state.customers);
+    });
+  };
 
-  colls = {
-      colls: [
-          "שם","שם משפחה","פלאפון"
-      ]
-  }
+  getColls = () => {
+    axios.get("http://127.0.0.1:5000/customers_colls/get").then((res) => {
+      this.setState({ colls: Object.values(res.data)[0] });
+    });
+  };
 
   render() {
+    {
+      if (!this.state.loaded) {
+        this.getColls();
+        this.getCustomers();
+        this.setState({loaded: true})
+      }
+    }
     return (
       <div>
         <table>
           <thead>
             <tr>
-              <th onClick={this.getCustomers} colSpan={Object.values(this.colls)[0].length}>לקוחות</th>
+              <th colSpan={this.state.colls.length+1}>
+                לקוחות
+              </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              {this.colls["colls"].map(col => {
-              return <th>{col}</th>}
-              )}
+              {Object.values(this.state.colls).map((obj) => {
+                return <th>{Object.values(obj)[1]}</th>;
+              })}
+              <th>+</th>
             </tr>
-            {/* <Customer_Mid c_lst={this.customers} /> */}
+            <Customer_Mid c_lst={this.state.customers} />
           </tbody>
         </table>
       </div>

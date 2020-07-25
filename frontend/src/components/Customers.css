@@ -16,7 +16,13 @@ th {
     background: #dd0000;
     color: #fff;
     border: none;  
-    padding: 0 20px;      
+    padding: 0 20px;   
+    cursor: default;   
+}
+
+#plus{
+  cursor: pointer;
+  font-size: 26px;
 }
 
 tr {
@@ -26,13 +32,13 @@ tr {
 }
 
 tr:hover {
-  background-color: lightgray;  
-  cursor: pointer;
+  background-color: lightgray;    
 }
 
 td {
     border-bottom: 1px solid #ddd;
     text-align: center;
+    cursor: pointer;
 }
 
 td:last-child {    
