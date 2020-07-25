@@ -1,16 +1,20 @@
 {
-  "customers_colls": [
-    {
-      "id" : "1",
-      "name": "שם"
-    },
-    {
-      "id" : "2",
-      "name": "שם משפחה"
-    },
-    {
-      "id": "3",
-      "name": "פלאפון"
-    }
-  ]
+    "customers_colls": [
+        {
+            "id": "1",
+            "name": "\u05e9\u05dd"
+        },
+        {
+            "id": "2",
+            "name": "\u05e9\u05dd \u05de\u05e9\u05e4\u05d7\u05d4"
+        },
+        {
+            "id": "3",
+            "name": "\u05e4\u05dc\u05d0\u05e4\u05d5\u05df"
+        },
+        {
+            "id": 4,
+            "name": "\u05db\u05ea\u05d5\u05d1\u05ea"
+        }
+    ]
 }

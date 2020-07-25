@@ -24,8 +24,12 @@ class Customers extends React.Component {
     });
   };
 
-  toggle_collsf = () => {
+  toggle_collsf = (load=false) => {    
     this.setState({ collsf: !this.state.collsf });
+    if(load)
+    {
+      this.setState({loaded: false})
+    }
   };
 
   last = () => {
@@ -33,7 +37,7 @@ class Customers extends React.Component {
   }
 
   render() {
-    {      
+    {          
       if (!this.state.loaded) {
         this.getColls();
         this.getCustomers();
@@ -59,6 +63,9 @@ class Customers extends React.Component {
               </th>
             </tr>
             <Customer_Mid c_lst={this.state.customers} />
+            <tr>
+              <th colSpan={this.state.colls.length + 1} className="plus">+</th>
+            </tr>
           </tbody>
         </table>
       </div>

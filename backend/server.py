@@ -1,8 +1,12 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, Response
 import customers_handler
 import customersColls_handler
+from flask_cors import CORS
+from urllib.parse import unquote
+import json
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/customers/get')
@@ -19,8 +23,11 @@ def customers_colls_get():
         response.headers.add('Access-Control-Allow-Origin', '*')
         return response
     elif request.method == 'POST':
-        print(request.data)
-        return "ok"
+        coll = json.loads(request.data)
+        customersColls_handler.post_customers_colls(coll)
+        response = Response(status=200)
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
 
 
 if __name__ == '__main__':
