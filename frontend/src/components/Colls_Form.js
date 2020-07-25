@@ -1,5 +1,6 @@
 import React from "react";
 import "./colls_form.css";
+import axios from "axios";
 
 class CollsF extends React.Component {
   state = {
@@ -19,19 +20,16 @@ class CollsF extends React.Component {
       return;
     }
     this.props.toggle();
-  };
-
-  sendValues = () => {
-    
-  }
+  };  
 
   handleChange = (event) => {
     this.setState({value: event.target.value});
   }
 
-  handleSubmit = (event) => {    
-    console.log(this.props.id)
-    console.log(this.state.value)
+  handleSubmit = () => {   
+    axios.post("http://127.0.0.1:5000/customers_colls", {id:this.props.id, name:this.state.value}).then((res) => {
+      console.log("posted")
+    });
   }
 
   render() {    

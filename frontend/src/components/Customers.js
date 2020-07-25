@@ -19,7 +19,7 @@ class Customers extends React.Component {
   };
 
   getColls = () => {
-    axios.get("http://127.0.0.1:5000/customers_colls/get").then((res) => {
+    axios.get("http://127.0.0.1:5000/customers_colls").then((res) => {
       this.setState({ colls: Object.values(res.data)[0] });
     });
   };

@@ -12,11 +12,15 @@ def customers_get():
     return response
 
 
-@app.route('/customers_colls/get')
+@app.route('/customers_colls', methods=['GET', 'POST'])
 def customers_colls_get():
-    response = jsonify(customersColls_handler.get_customers_colls())
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
+    if request.method == 'GET':
+        response = jsonify(customersColls_handler.get_customers_colls())
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
+    elif request.method == 'POST':
+        print(request.data)
+        return "ok"
 
 
 if __name__ == '__main__':
