@@ -2,7 +2,6 @@ from flask import Flask, jsonify, request, Response
 import customers_handler
 import customersColls_handler
 from flask_cors import CORS
-from urllib.parse import unquote
 import json
 
 app = Flask(__name__)
@@ -12,6 +11,7 @@ CORS(app)
 @app.route('/customers/get')
 def customers_get():
     response = jsonify(customers_handler.get_customers())
+    print(customers_handler.get_customers())
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
