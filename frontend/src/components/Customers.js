@@ -9,13 +9,12 @@ class Customers extends React.Component {
     loaded: false,
     customers: [],
     colls: [],
-    collsf: false,
+    collsf: false
   };
 
   getCustomers = () => {
     axios.get("http://127.0.0.1:5000/customers/get").then((res) => {
-      this.setState({ customers: Object.values(res.data)[0] });
-      console.log(this.state.customers);
+      this.setState({ customers: Object.values(res.data)[0] });      
     });
   };
 
@@ -29,17 +28,21 @@ class Customers extends React.Component {
     this.setState({ collsf: !this.state.collsf });
   };
 
+  last = () => {
+    return parseInt(Object.values(Object(this.state.colls[this.state.colls.length-1]))[0])+1
+  }
+
   render() {
-    {
+    {      
       if (!this.state.loaded) {
         this.getColls();
         this.getCustomers();
-        this.setState({ loaded: true });
-      }
+        this.setState({ loaded: true });                             
+      }      
     }
     return (
       <div>
-        {this.state.collsf && <CollsF toggle={this.toggle_collsf} />}
+        {this.state.collsf && <CollsF toggle={this.toggle_collsf} id={this.last()}/>}
         <table>
           <thead>
             <tr>
