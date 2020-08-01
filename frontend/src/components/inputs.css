@@ -1,0 +1,29 @@
+.inpF{
+    margin: 10px;
+    float: left;
+}
+
+.inTab {
+    width: 75%;
+    border: 0px;    
+
+}
+
+.inTab td{
+    text-align: right;    
+    border-bottom: 0px !important;
+    cursor: default !important;
+    font-weight: bold;
+}
+
+.inTab tr:hover{
+    background-color: white !important;
+}
+
+.prod_tab td{
+    cursor: default;
+}
+
+.prod_tab tr:hover{
+    background-color: white !important;
+}
